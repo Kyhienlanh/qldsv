@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 namespace quanlidiem
 {
     public partial class themsv : Form
@@ -29,44 +29,44 @@ namespace quanlidiem
             dataGridView1.DataSource = modify1.getallsinhvien();
         }
 
-        private void ExportToExcel(DataGridView dataGridView, string filePath)
-        {
-            try
-            {
-                // Tạo một đối tượng Excel mới
-                Excel.Application excelApp = new Excel.Application();
-                Excel.Workbook workbook = excelApp.Workbooks.Add();
+        //private void ExportToExcel(DataGridView dataGridView, string filePath)
+        //{
+        //    try
+        //    {
+        //        // Tạo một đối tượng Excel mới
+        //        Excel.Application excelApp = new Excel.Application();
+        //        Excel.Workbook workbook = excelApp.Workbooks.Add();
 
-                // Tạo một đối tượng Worksheet và lấy nó từ Workbook
-                Excel.Worksheet worksheet = workbook.ActiveSheet;
+        //        // Tạo một đối tượng Worksheet và lấy nó từ Workbook
+        //        Excel.Worksheet worksheet = workbook.ActiveSheet;
 
-                // Đặt tên các cột dựa trên Header Text của DataGridView
-                for (int i = 0; i < dataGridView.Columns.Count; i++)
-                {
-                    worksheet.Cells[1, i + 1] = dataGridView.Columns[i].HeaderText;
-                }
+        //        // Đặt tên các cột dựa trên Header Text của DataGridView
+        //        for (int i = 0; i < dataGridView.Columns.Count; i++)
+        //        {
+        //            worksheet.Cells[1, i + 1] = dataGridView.Columns[i].HeaderText;
+        //        }
 
-                // Sao chép dữ liệu từ DataGridView vào tệp Excel
-                for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
-                {
-                    for (int j = 0; j < dataGridView.Columns.Count; j++)
-                    {
-                        worksheet.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
-                    }
-                }
+        //        // Sao chép dữ liệu từ DataGridView vào tệp Excel
+        //        for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
+        //        {
+        //            for (int j = 0; j < dataGridView.Columns.Count; j++)
+        //            {
+        //                worksheet.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
+        //            }
+        //        }
 
-                // Lưu tệp Excel và đóng ứng dụng Excel
-                workbook.SaveAs(filePath);
-                workbook.Close();
-                excelApp.Quit();
+        //        // Lưu tệp Excel và đóng ứng dụng Excel
+        //        workbook.SaveAs(filePath);
+        //        workbook.Close();
+        //        excelApp.Quit();
 
-                MessageBox.Show("Dữ liệu đã được xuất thành công ra tệp Excel!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
-        }
+        //        MessageBox.Show("Dữ liệu đã được xuất thành công ra tệp Excel!");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi: " + ex.Message);
+        //    }
+        //}
         private void button1_Click(object sender, EventArgs e)
         {
             timer1.Start();

@@ -126,50 +126,50 @@ namespace quanlidiem
                    MessageBox.Show("Lỗi: " + ex.Message);
                }
            }*/
-        private void ExportToExcel(DataGridView dataGridView)
-        {
-            try
-            {
-                string folderPath = @"E:\In file excel";
-                string userName = Environment.UserName;
-                string timeStamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-                string fileName = $"DataExport_{userName}_{timeStamp}.xlsx";
-                string filePath = Path.Combine(folderPath, fileName);
+        //private void ExportToExcel(DataGridView dataGridView)
+        //{
+        //    try
+        //    {
+        //        string folderPath = @"E:\In file excel";
+        //        string userName = Environment.UserName;
+        //        string timeStamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+        //        string fileName = $"DataExport_{userName}_{timeStamp}.xlsx";
+        //        string filePath = Path.Combine(folderPath, fileName);
 
-                // Tạo một đối tượng Excel mới
-                Excel.Application excelApp = new Excel.Application();
-                Excel.Workbook workbook = excelApp.Workbooks.Add();
+        //        // Tạo một đối tượng Excel mới
+        //        Excel.Application excelApp = new Excel.Application();
+        //        Excel.Workbook workbook = excelApp.Workbooks.Add();
 
-                // Tạo một đối tượng Worksheet và lấy nó từ Workbook
-                Excel.Worksheet worksheet = workbook.ActiveSheet;
+        //        // Tạo một đối tượng Worksheet và lấy nó từ Workbook
+        //        Excel.Worksheet worksheet = workbook.ActiveSheet;
 
-                // Đặt tên các cột dựa trên Header Text của DataGridView
-                for (int i = 0; i < dataGridView.Columns.Count; i++)
-                {
-                    worksheet.Cells[1, i + 1] = dataGridView.Columns[i].HeaderText;
-                }
+        //        // Đặt tên các cột dựa trên Header Text của DataGridView
+        //        for (int i = 0; i < dataGridView.Columns.Count; i++)
+        //        {
+        //            worksheet.Cells[1, i + 1] = dataGridView.Columns[i].HeaderText;
+        //        }
 
-                // Sao chép dữ liệu từ DataGridView vào tệp Excel
-                for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
-                {
-                    for (int j = 0; j < dataGridView.Columns.Count; j++)
-                    {
-                        worksheet.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
-                    }
-                }
+        //        // Sao chép dữ liệu từ DataGridView vào tệp Excel
+        //        for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
+        //        {
+        //            for (int j = 0; j < dataGridView.Columns.Count; j++)
+        //            {
+        //                worksheet.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
+        //            }
+        //        }
 
-                // Lưu tệp Excel và đóng ứng dụng Excel
-                workbook.SaveAs(filePath);
-                workbook.Close();
-                excelApp.Quit();
+        //        // Lưu tệp Excel và đóng ứng dụng Excel
+        //        workbook.SaveAs(filePath);
+        //        workbook.Close();
+        //        excelApp.Quit();
 
-                MessageBox.Show("Dữ liệu đã được xuất thành công ra tệp Excel!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
-        }
+        //        MessageBox.Show("Dữ liệu đã được xuất thành công ra tệp Excel!");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi: " + ex.Message);
+        //    }
+        //}
         private void button1_Click_2(object sender, EventArgs e)
         {
             using (SqlConnection sqlConnection = connection.GetSqlConnection())
@@ -200,10 +200,10 @@ namespace quanlidiem
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ExportToExcel(dataGridView1);
-        }
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    ExportToExcel(dataGridView1);
+        //}
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
