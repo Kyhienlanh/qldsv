@@ -1,5 +1,5 @@
-.vs/
-bin/
-obj/Debug/
-quanlidiem/bin/Debug/
-quanlidiem/obj/Debug/
+.vs
+bin/*
+obj/Debug/*
+quanlidiem/bin/Debug/*
+quanlidiem/obj/Debug/*
